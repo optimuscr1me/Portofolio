@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Portofolio Siswa - Student Led Conference</title>
+<style>
+:root{--bg:#f7f7f8;--card:#fff;--ink:#2b2b2b;--mute:#6b6e75;--acc:#d9232d;--acc2:#4a4d52;--line:#e3e3e6;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#17181a;--card:#222326;--ink:#f1f1f2;--mute:#a0a3a9;--acc:#ef4a52;--acc2:#b8bcc4;--line:#34363a}}
+:root[data-theme="dark"]{--bg:#17181a;--card:#222326;--ink:#f1f1f2;--mute:#a0a3a9;--acc:#ef4a52;--acc2:#b8bcc4;--line:#34363a}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:70px}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);border-bottom:1px solid var(--line);display:flex;gap:4px;overflow-x:auto;padding:8px 12px;align-items:center}
+nav a{color:var(--ink);text-decoration:none;padding:6px 12px;border-radius:99px;font-size:14px;white-space:nowrap}
+nav a:hover{background:var(--line)}
+nav button{margin-left:auto;flex:none;border:1px solid var(--acc);background:none;color:var(--acc);border-radius:99px;padding:6px 14px;font-size:13px;cursor:pointer}
+nav button.on{background:var(--acc);color:#fff}
+main{max-width:920px;margin:0 auto;padding:0 18px 60px}
+.hero{padding:56px 0 36px;display:grid;gap:18px}
+.tag{color:var(--acc);font-weight:600;letter-spacing:.08em;font-size:13px;text-transform:uppercase}
+h1{font-size:clamp(32px,7vw,54px);line-height:1.1;margin:0}
+h1 span{color:var(--acc)}
+.sub{color:var(--mute);max-width:60ch;font-size:18px;margin:0}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{background:var(--card);border:1px solid var(--line);border-radius:99px;padding:4px 12px;font-size:14px}
+section{padding:34px 0;border-top:1px solid var(--line)}
+h2{font-size:26px;margin:0 0 6px}
+.lead{color:var(--mute);margin:0 0 20px}
+.grid{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(250px,1fr))}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px}
+.card h3{margin:0 0 4px;font-size:18px}
+.meta{color:var(--acc2);font-size:13px;font-weight:600}
+.card p{margin:8px 0 0;font-size:15px}
+.card ul{margin:8px 0 0;padding-left:18px;font-size:15px}
+.big{font-size:34px;font-weight:700;color:var(--acc);line-height:1}
+.tl{border-left:3px solid var(--acc);padding-left:18px;display:grid;gap:18px}
+.tl h3{margin:0;font-size:17px}
+.tl p{margin:2px 0 0;font-size:15px}
+.bar{height:10px;background:var(--line);border-radius:9px;overflow:hidden;margin:4px 0 12px}
+.bar i{display:block;height:100%;background:var(--acc2)}
+.two{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
+.q{font-size:20px;font-style:italic;border-left:4px solid var(--acc);padding:4px 16px;margin:0}
+footer{text-align:center;color:var(--mute);padding:30px 0;font-size:14px}
+.edit [contenteditable]{outline:1px dashed var(--acc);outline-offset:3px}
+#hint{display:none;background:var(--acc);color:#fff;text-align:center;font-size:13px;padding:6px}
+.edit #hint{display:block}
+.slot{position:relative;aspect-ratio:4/3;border:2px dashed var(--line);border-radius:12px;display:grid;place-items:center;color:var(--mute);font-size:14px;text-align:center;overflow:hidden;margin-bottom:12px;background:var(--bg)}.slot img,.slot video{width:100%;height:100%;object-fit:cover;display:block}.slot.filled{border:0}.edit .slot{cursor:pointer;border-color:var(--acc);color:var(--acc)}.slot .x{position:absolute;top:6px;right:6px;display:none;background:rgba(0,0,0,.65);color:#fff;border:0;border-radius:99px;width:28px;height:28px;cursor:pointer}.edit .slot.filled .x{display:block}.avatar{width:150px;height:150px;aspect-ratio:1;border-radius:50%;border:3px solid var(--acc);margin:0}.avatar.filled{border:3px solid var(--acc)}.vid{aspect-ratio:16/9}.gal{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}.gal figure{margin:0}.gal figcaption{font-size:14px;color:var(--mute)}.gal .slot{margin-bottom:6px}.note{font-size:14px;color:var(--mute)}
+@media print{nav,#hint{display:none}}
+</style>
+</head>
+<body>
+<div id="hint">Mode Edit aktif: klik teks mana saja untuk mengganti isinya. Perubahan tersimpan otomatis di browser ini.</div>
+<nav>
+<a href="#tentang">Tentang</a><a href="#refleksi">Refleksi</a><a href="#projek">Projek</a><a href="#prestasi">Prestasi</a><a href="#pengalaman">Pengalaman</a><a href="#galeri">Galeri</a><a href="#video">Video</a><a href="#target">Target</a>
+<button id="eb" type="button">Mode Edit</button>
+</nav>
+<main id="m">
+<header class="hero" id="tentang">
+<div class="slot avatar" data-k="profil" data-t="img" data-l="Foto saya"></div><div class="tag">Student Led Conference · Semester Ganjil 2026/2027</div>
+<h1>Halo, saya <span>Nama Siswa</span></h1>
+<p class="sub">Siswa Kelas XI, SMK Telkom Makassar. Saya suka belajar lewat projek nyata dan ingin menunjukkan apa yang sudah saya capai semester ini.</p>
+<div class="chips"><span class="chip">Hobi: robotik &amp; menggambar</span><span class="chip">Mapel favorit: IPA</span><span class="chip">Cita-cita: insinyur</span></div>
+</header>
+
+<section id="refleksi">
+<h2>Refleksi Belajar</h2>
+<p class="lead">Perkembangan saya semester ini menurut penilaian diri sendiri.</p>
+<div class="two">
+<div class="card">
+<h3>Kemampuan Saya</h3>
+<div>Matematika</div><div class="bar"><i style="width:85%"></i></div>
+<div>Bahasa Inggris</div><div class="bar"><i style="width:70%"></i></div>
+<div>Kerja sama tim</div><div class="bar"><i style="width:90%"></i></div>
+<div>Manajemen waktu</div><div class="bar"><i style="width:60%"></i></div>
+</div>
+<div class="card">
+<h3>Yang Saya Pelajari</h3>
+<ul><li><b>Kekuatan:</b> teliti dan suka membantu teman.</li><li><b>Tantangan:</b> sering menunda tugas panjang.</li><li><b>Strategi:</b> membuat jadwal mingguan dan mencicil tugas.</li></ul>
+<p class="q" style="font-size:16px;margin-top:14px">"Gagal itu bagian dari belajar, yang penting saya mencoba lagi."</p>
+</div>
+</div>
+</section>
+
+<section id="projek">
+<h2>Projek Semester Ini</h2>
+<p class="lead">Karya yang paling saya banggakan.</p>
+<div class="grid">
+<div class="card"><div class="slot" data-k="p1" data-t="img" data-l="Foto projek"></div><div class="meta">IPA · Projek Kelompok</div><h3>Filter Air Sederhana</h3><p>Membuat alat penyaring air dari pasir, arang, dan kerikil, lalu menguji kejernihan air sebelum dan sesudah disaring.</p><ul><li>Peran: ketua tim</li><li>Hasil: kekeruhan turun sekitar 80%</li></ul></div>
+<div class="card"><div class="slot" data-k="p2" data-t="img" data-l="Foto projek"></div><div class="meta">Bahasa Indonesia · Individu</div><h3>Buku Cerita Digital</h3><p>Menulis dan mengilustrasikan cerita pendek tentang budaya Sulawesi Selatan.</p><ul><li>Peran: penulis &amp; ilustrator</li><li>Hasil: dibaca 3 kelas</li></ul></div>
+<div class="card"><div class="slot" data-k="p3" data-t="img" data-l="Foto projek"></div><div class="meta">Matematika · Berpasangan</div><h3>Survei Jajanan Sekolah</h3><p>Mengumpulkan data 60 teman, menyajikannya dalam diagram, dan menyimpulkan jajanan paling diminati.</p><ul><li>Peran: analis data</li><li>Hasil: presentasi di kelas</li></ul></div>
+</div>
+</section>
+
+<section id="prestasi">
+<h2>Prestasi</h2>
+<p class="lead">Pencapaian akademik dan non-akademik.</p>
+<div class="grid">
+<div class="card"><div class="slot" data-k="a1" data-t="img" data-l="Foto piala / sertifikat"></div><div class="big">1</div><h3>Juara 1 Lomba Poster Sains</h3><div class="meta">Tingkat sekolah · September 2026</div></div>
+<div class="card"><div class="slot" data-k="a2" data-t="img" data-l="Foto piala / sertifikat"></div><div class="big">3</div><h3>Juara 3 Olimpiade Matematika</h3><div class="meta">Tingkat kota · Oktober 2026</div></div>
+<div class="card"><div class="slot" data-k="a3" data-t="img" data-l="Foto penghargaan"></div><div class="big">★</div><h3>Siswa Teladan Bulan Agustus</h3><div class="meta">Penghargaan wali kelas</div></div>
+</div>
+</section>
+
+<section id="pengalaman">
+<h2>Pengalaman &amp; Kegiatan</h2>
+<p class="lead">Organisasi, ekstrakurikuler, dan kegiatan di luar kelas.</p>
+<div class="tl">
+<div><div class="meta">Juli 2026 – sekarang</div><h3>Anggota OSIS, Seksi Kebersihan</h3><p>Mengatur jadwal piket dan kampanye bebas sampah plastik di kantin.</p></div>
+<div><div class="meta">Agustus 2026</div><h3>Panitia Peringatan 17 Agustus</h3><p>Mengoordinasi 5 lomba antarkelas dan belajar mengelola waktu serta tim.</p></div>
+<div><div class="meta">Setiap Jumat</div><h3>Ekstrakurikuler Robotik</h3><p>Merakit dan memprogram robot pengikut garis menggunakan Arduino.</p></div>
+</div>
+</section>
+
+<section id="galeri"><h2>Galeri Kegiatan</h2><p class="lead">Dokumentasi momen selama semester ganjil.</p><div class="gal"><figure><div class="slot" data-k="g1" data-t="img"></div><figcaption>Keterangan kegiatan, tanggal</figcaption></figure><figure><div class="slot" data-k="g2" data-t="img"></div><figcaption>Keterangan kegiatan, tanggal</figcaption></figure><figure><div class="slot" data-k="g3" data-t="img"></div><figcaption>Keterangan kegiatan, tanggal</figcaption></figure><figure><div class="slot" data-k="g4" data-t="img"></div><figcaption>Keterangan kegiatan, tanggal</figcaption></figure><figure><div class="slot" data-k="g5" data-t="img"></div><figcaption>Keterangan kegiatan, tanggal</figcaption></figure><figure><div class="slot" data-k="g6" data-t="img"></div><figcaption>Keterangan kegiatan, tanggal</figcaption></figure></div></section>
+<section id="video"><h2>Video</h2><p class="lead">Presentasi projek, lomba, atau kegiatan yang bergerak.</p><div class="two"><figure style="margin:0"><div class="slot vid" data-k="v1" data-t="vid" data-l="Video 1"></div><figcaption>Judul video 1</figcaption></figure><figure style="margin:0"><div class="slot vid" data-k="v2" data-t="vid" data-l="Video 2"></div><figcaption>Judul video 2</figcaption></figure></div></section>
+<section id="target">
+<h2>Target Semester Depan</h2>
+<p class="lead">Rencana saya dan dukungan yang saya harapkan.</p>
+<div class="two">
+<div class="card"><h3>Target Saya</h3><ul><li>Menaikkan nilai Bahasa Inggris ke 85.</li><li>Menyelesaikan tugas minimal 2 hari sebelum tenggat.</li><li>Ikut satu lomba robotik tingkat provinsi.</li></ul></div>
+<div class="card"><h3>Harapan untuk Orang Tua &amp; Guru</h3><ul><li>Mengingatkan saya soal jadwal belajar.</li><li>Memberi umpan balik tentang projek saya.</li><li>Mendukung latihan robotik di rumah.</li></ul></div>
+</div>
+</section>
+</main>
+<footer>Terima kasih sudah hadir dan mendengarkan. Saya terbuka untuk pertanyaan dan masukan.</footer>
+<script>
+(function(){
+var m=document.getElementById('m'),b=document.getElementById('eb'),K='portofolio-v2';
+try{var s=localStorage.getItem(K);if(s)m.innerHTML=s}catch(e){}
+var on=false;
+function set(v){
+on=v;document.body.classList.toggle('edit',v);b.classList.toggle('on',v);b.textContent=v?'Selesai':'Mode Edit';
+m.querySelectorAll('h1,h2,h3,p,li,span,div.meta,div.big,.sub,figcaption').forEach(function(e){if(v)e.setAttribute('contenteditable','true');else e.removeAttribute('contenteditable')});
+if(!v)save();
+}
+function save(){try{var c=m.cloneNode(true);c.querySelectorAll('.slot').forEach(function(e){e.classList.remove('filled');e.innerHTML=''});c.querySelectorAll('[contenteditable]').forEach(function(e){e.removeAttribute('contenteditable')});localStorage.setItem(K,c.innerHTML)}catch(e){}}
+b.addEventListener('click',function(){set(!on)});
+m.addEventListener('input',function(){if(on)save()});
+})();
+</script>
+<script>
+(function(){
+var DB=null,m=document.getElementById('m');
+function op(){return new Promise(function(r){try{var o=indexedDB.open('portofolio-media',1);o.onupgradeneeded=function(){o.result.createObjectStore('m')};o.onsuccess=function(){r(o.result)};o.onerror=function(){r(null)}}catch(e){r(null)}})}
+function tx(mode,f){return new Promise(function(r){if(!DB)return r(null);try{var t=DB.transaction('m',mode),s=f(t.objectStore('m'));t.oncomplete=function(){r(s&&s.result)};t.onerror=t.onabort=function(){r(null)}}catch(e){r(null)}})}
+function empty(s){s.classList.remove('filled');s.innerHTML='<span>＋ '+(s.dataset.l||'Tambah foto')+'<br><small>(aktifkan Mode Edit, lalu ketuk)</small></span>'}
+function fill(s,b){var u=URL.createObjectURL(b),e;if(s.dataset.t==='vid'){e=document.createElement('video');e.controls=true;e.playsInline=true;e.preload='metadata'}else{e=document.createElement('img');e.alt=s.dataset.l||''}e.src=u;s.innerHTML='';s.appendChild(e);s.classList.add('filled');var x=document.createElement('button');x.className='x';x.type='button';x.textContent='×';x.title='Hapus';s.appendChild(x)}
+function shrink(f){return createImageBitmap(f).then(function(i){var k=Math.min(1,1600/Math.max(i.width,i.height)),c=document.createElement('canvas');c.width=Math.round(i.width*k);c.height=Math.round(i.height*k);c.getContext('2d').drawImage(i,0,0,c.width,c.height);return new Promise(function(r){c.toBlob(function(b){r(b||f)},'image/jpeg',.85)})}).catch(function(){return f})}
+function pick(s){var i=document.createElement('input');i.type='file';i.accept=s.dataset.t==='vid'?'video/*':'image/*';i.onchange=function(){var f=i.files[0];if(!f)return;if(s.dataset.t==='vid'&&f.size>150e6&&!confirm('Video besar (>150 MB) bisa gagal tersimpan. Lanjutkan?'))return;(s.dataset.t==='vid'?Promise.resolve(f):shrink(f)).then(function(b){fill(s,b);tx('readwrite',function(o){return o.put(b,s.dataset.k)}).then(function(r){if(!DB)alert('Penyimpanan browser tidak tersedia, foto hanya tampil sementara.')})})};i.click()}
+m.addEventListener('click',function(ev){var s=ev.target.closest('.slot');if(!s||!document.body.classList.contains('edit'))return;if(ev.target.classList.contains('x')){if(confirm('Hapus media ini?')){tx('readwrite',function(o){return o.delete(s.dataset.k)});empty(s)}return}if(ev.target.tagName==='VIDEO')return;pick(s)});
+op().then(function(d){DB=d;try{navigator.storage&&navigator.storage.persist&&navigator.storage.persist()}catch(e){}m.querySelectorAll('.slot').forEach(function(s){empty(s);tx('readonly',function(o){return o.get(s.dataset.k)}).then(function(b){if(b)fill(s,b)})})});
+})();
+</script>
+</body>
+</html>
